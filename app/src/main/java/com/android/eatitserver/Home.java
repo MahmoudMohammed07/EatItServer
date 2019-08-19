@@ -45,6 +45,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.UUID;
 
+import static com.android.eatitserver.Common.Common.PICK_IMAGE_REQUEST;
+
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -68,7 +70,6 @@ public class Home extends AppCompatActivity
     Category newCategory;
 
     Uri saveUri;
-    private final int PICK_IMAGE_REQUEST = 71;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -236,7 +237,9 @@ public class Home extends AppCompatActivity
                 viewHolder.setItemOnClickListener(new ItemOnClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-
+                        Intent foodListIntent = new Intent(Home.this, FoodList.class);
+                        foodListIntent.putExtra("CategoryId", adapter.getRef(position).getKey());
+                        startActivity(foodListIntent);
                     }
                 });
 
