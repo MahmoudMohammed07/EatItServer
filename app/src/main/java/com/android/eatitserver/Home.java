@@ -150,7 +150,7 @@ public class Home extends AppCompatActivity
 
                 if (newCategory != null) {
                     categories.push().setValue(newCategory);
-                    Snackbar.make(drawer, "New category " + newCategory.getName() + " has added", Snackbar.LENGTH_SHORT)
+                    Snackbar.make(drawer, "New category " + newCategory.getName() + " was added", Snackbar.LENGTH_SHORT)
                             .show();
                 }
 
