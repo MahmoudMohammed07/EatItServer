@@ -138,7 +138,7 @@ public class FoodList extends AppCompatActivity {
 
                 if (newFood != null) {
                     foodList.push().setValue(newFood);
-                    Snackbar.make(rootLayout, "New Food " + newFood.getName() + " has added", Snackbar.LENGTH_SHORT)
+                    Snackbar.make(rootLayout, "New Food " + newFood.getName() + " has been added", Snackbar.LENGTH_SHORT)
                             .show();
                 }
 
@@ -309,7 +309,7 @@ public class FoodList extends AppCompatActivity {
                 item.setDiscount(editDiscount.getText().toString());
 
                 foodList.child(key).setValue(item);
-                Snackbar.make(rootLayout, "Food " + item.getName() + " was edited", Snackbar.LENGTH_SHORT)
+                Snackbar.make(rootLayout, "Food " + item.getName() + " has been edited", Snackbar.LENGTH_SHORT)
                         .show();
 
             }

@@ -150,7 +150,7 @@ public class Home extends AppCompatActivity
 
                 if (newCategory != null) {
                     categories.push().setValue(newCategory);
-                    Snackbar.make(drawer, "New category " + newCategory.getName() + " was added", Snackbar.LENGTH_SHORT)
+                    Snackbar.make(drawer, "New category " + newCategory.getName() + " has been added", Snackbar.LENGTH_SHORT)
                             .show();
                 }
 
@@ -287,6 +287,10 @@ public class Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if (id == R.id.nav_orders) {
+            Intent ordersIntent = new Intent(Home.this, OrderStatus.class);
+            startActivity(ordersIntent);
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
