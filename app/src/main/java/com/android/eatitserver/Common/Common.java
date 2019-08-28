@@ -7,6 +7,8 @@ import android.graphics.Paint;
 
 import com.android.eatitserver.Model.Request;
 import com.android.eatitserver.Model.User;
+import com.android.eatitserver.Remote.APIService;
+import com.android.eatitserver.Remote.FCMRetrofitClient;
 import com.android.eatitserver.Remote.IGeoCoordinates;
 import com.android.eatitserver.Remote.RetrofitClient;
 
@@ -20,6 +22,7 @@ public class Common {
     public static final int PICK_IMAGE_REQUEST = 71;
 
     public static final String BASE_URL = "https://maps.googleapis.com";
+    private static final String FCM_URL = "https://fcm.googleapis.com/";
 
     public static String convertCodeToStatus(String code) {
         if (code.equals("0")) {
@@ -33,6 +36,10 @@ public class Common {
 
     public static IGeoCoordinates getGeoCodeServices() {
         return RetrofitClient.getClient(BASE_URL).create(IGeoCoordinates.class);
+    }
+
+    public static APIService getFCMClient() {
+        return FCMRetrofitClient.getClient(FCM_URL).create(APIService.class);
     }
 
     public static Bitmap scaleBitmap(Bitmap bitmap, int newWidth, int newHeight) {

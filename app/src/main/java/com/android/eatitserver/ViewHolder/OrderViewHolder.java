@@ -9,7 +9,7 @@ import com.android.eatitserver.Interface.ItemOnClickListener;
 import com.android.eatitserver.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
-        View.OnLongClickListener, View.OnCreateContextMenuListener {
+         View.OnCreateContextMenuListener {
 
     public TextView txtOrderId, txtOrderStatus, txtOrderPhone, txtOrderAddress;
 
@@ -24,7 +24,6 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOrderAddress = (TextView) itemView.findViewById(R.id.order_address);
 
         itemView.setOnClickListener(this);
-        itemView.setOnLongClickListener(this);
         itemView.setOnCreateContextMenuListener(this);
 
     }
@@ -45,9 +44,4 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         contextMenu.add(0, 1, getAdapterPosition(), "Delete");
     }
 
-    @Override
-    public boolean onLongClick(View view) {
-        itemOnClickListener.onClick(view, getAdapterPosition(), true);
-        return true;
-    }
 }
