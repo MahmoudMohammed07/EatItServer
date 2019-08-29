@@ -54,7 +54,7 @@ public class SignIn extends AppCompatActivity {
 
         final String localPhone = phone;
         final String localPassword = password;
-        users.addValueEventListener(new ValueEventListener() {
+        users.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.child(localPhone).exists()) {
@@ -66,6 +66,7 @@ public class SignIn extends AppCompatActivity {
                             Intent loginIntent = new Intent(SignIn.this, Home.class);
                             Common.currentUser = user;
                             startActivity(loginIntent);
+                            users.removeEventListener(this);
                             finish();
                         } else {
                             Toast.makeText(SignIn.this, "Wrong password!", Toast.LENGTH_SHORT).show();
