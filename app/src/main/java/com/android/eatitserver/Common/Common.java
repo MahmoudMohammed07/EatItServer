@@ -16,6 +16,8 @@ public class Common {
     public static User currentUser;
     public static Request currentRequest;
 
+    public static String PHONE_TEXT = "userText";
+
     public static final String UPDATE = "Update";
     public static final String DELETE = "Delete";
 
